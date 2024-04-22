@@ -28,7 +28,7 @@ jobs:
         context: ./frontend
         file: ./frontend/Dockerfile
         push: true
-        tags: svetlilaloli/frontend:latest, svetlilaloli/frontend:$(date +%s)
+        tags: svetlilaloli/frontend:latest, svetlilaloli/frontend:${{ github.event.after}}-${{github.run_number}}
   build-backend:
     runs-on: ubuntu-latest
     steps:
@@ -53,4 +53,4 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: svetlilaloli/backend:latest, svetlilaloli/backend:$(date +%s)
+          tags: svetlilaloli/backend:latest, svetlilaloli/backend:${{ github.event.after}}-${{github.run_number}}
